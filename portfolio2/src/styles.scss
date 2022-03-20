@@ -1,0 +1,496 @@
+/* You can add global styles to this file, and also import other style files */
+/*=============== BASE ===============*/
+@import "~@angular/material/theming";
+@import "~ngx-toastr/toastr.css";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+h1,
+h2 {
+  color: var(--title-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 350%;
+  height: auto;
+  background: #fdfaff;
+  border-radius: 100px;
+  margin: 0px;
+}
+// .main-page {
+//   display: flex;
+//   flex-direction: row;
+// }
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  /* Show menu */
+  .show-menu {
+    transform: translate(70%);
+  }
+  .container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .show-menu {
+    transform: translate(70%);
+  }
+}
+@media screen and (min-width: 400px) {
+  .show-menu {
+    transform: translate(70%);
+  }
+}
+/* For medium devices */
+@media screen and (min-width: 767px) {
+  .show-menu {
+    transform: translate(40%);
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  /* Show menu */
+  .show-menu {
+    transform: translate(30%);
+  }
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 7rem 0 2rem;
+  }
+
+  .header__nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav {
+    &__shape {
+      width: 350px;
+      height: 350px;
+    }
+    &__mask {
+      width: 100px;
+      height: 100px;
+      border-radius: 2rem;
+      margin-bottom: 2rem;
+    }
+    &__img {
+      // width: 90px;
+    }
+    &__link {
+      font-size: var(--normal-font-size);
+
+      & i {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+/*=============== HEADER Y NAV ===============*/
+.nav {
+  background-color: var(--container-color-dark);
+  padding-top: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transition: 0.4s;
+
+  &__shape {
+    width: 200px;
+    height: 200px;
+    background-color: var(--first-color-shape);
+    border-radius: 50%;
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    filter: blur(90px);
+  }
+  &__close {
+    position: relative;
+    display: inline-flex;
+    font-size: 1.8rem;
+    color: var(--text-color-dark);
+    cursor: pointer;
+    margin-bottom: 3.5rem;
+    z-index: 100;
+    transform: translate(200px, 0px);
+  }
+  &__img {
+    //width: 70px;
+  }
+  &__mask {
+    width: 80px;
+    height: 80px;
+    /* background: linear-gradient(224deg, #a22fe9 -2%, #ddaafe 97%); */
+    /* border-radius: 1.5rem; */
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+  }
+  &__data {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+  &__greeting {
+    display: block;
+    color: var(--text-color-dark);
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  &__name {
+    color: var(--title-color-dark);
+    font-size: var(--big-font-size);
+    line-height: 130%;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+  }
+  &__link {
+    color: var(--text-color-dark);
+    display: inline-flex;
+    align-items: center;
+    column-gap: 1rem;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    transition: 0.3s;
+
+    & i {
+      font-size: 1.15rem;
+    }
+
+    &:hover {
+      color: var(--title-color-dark);
+    }
+  }
+}
+
+.main {
+  position: relative;
+  background-color: var(--body-color);
+  transition: 0.4s;
+}
+
+.header {
+  width: 100%;
+  background-color: var(--body-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+
+  &__nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo a {
+      color: var(--black-900);
+      font-weight: 900;
+    }
+    .logo a span {
+      color: var(--main-color);
+    }
+  }
+  &__logo,
+  &__toggle {
+    color: var(--title-color);
+  }
+  &__logo {
+    font-weight: 500;
+  }
+  &__toggle {
+    font-size: 1.15rem;
+    cursor: pointer;
+  }
+}
+
+/* Change background header */
+.scroll-header {
+  box-shadow: 0 1px 4px hsla(0, 4%, 15%, 0.1);
+}
+
+/* Active link */
+.active-link {
+  color: var(--title-color-dark);
+}
+
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  --white: #fff;
+  --main-color: #00a78e;
+  /*========== Colors ==========*/
+  --first-color: hsl(273, 97%, 66%);
+  --first-color-shape: hsl(253, 33%, 32%);
+  --title-color: hsl(273, 8%, 15%);
+  --text-color: hsl(273, 4%, 45%);
+  --body-color: hsl(273, 100%, 99%);
+  --container-color: #fff;
+  --title-color-dark: hsl(273, 83%, 98%);
+  --text-color-dark: hsl(273deg 3% 23%);
+  --container-color-dark: #7fa296;
+  --black-900: #000;
+
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+
+  --big-font-size: 1.5rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+
+  // Responsive typography
+  @media screen and (min-width: 968px) {
+    --big-font-size: 2rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+  }
+
+  /*========== z index ==========*/
+  --z-fixed: 100;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  //max-width: 1024px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.section {
+  padding: 4.5rem 0 1rem;
+  //margin: 5vh;
+
+  // Important, When you insert your content,
+  // remove the section height class
+  // &__height {
+  //   height: 100vh;
+  // }
+  .container {
+    .row {
+      .home-text {
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+      }
+    }
+  }
+}
+.home {
+  height: 60vh;
+  .container {
+    margin-top: 50px;
+  }
+}
+.about {
+  .about-content {
+    .section-title {
+      margin-bottom: 40px;
+    }
+  }
+}
+.section-title {
+  margin-bottom: 40px;
+}
+
+.about-container {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  flex: 0 0 100%;
+  //box-shadow: var(--shadow-black-100);
+  padding: 10px 10px;
+  padding: 10px 10spx;
+  margin: 0px 20px 40px 0px;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0px 4px 25px rgb(239 235 242);
+}
+.about-row .about-container:hover {
+  background-color: var(--container-color-dark);
+  .about-container-inner h3,
+  p {
+    color: var(--white);
+  }
+}
+.about-row .about-container .about-container-inner h3 {
+  font-size: var(--normal-font-size);
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 10px;
+  display: flex;
+  text-transform: capitalize;
+}
+
+//skills scss
+
+.skills-container {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  .skills-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .skills {
+      margin: 5px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 25px rgb(239 235 242);
+      h3 {
+        // flex: 0.3;
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size) !important;
+        // font-weight: 600;
+        margin: 0 0 10px;
+        //display: flex;
+        text-transform: capitalize;
+      }
+      span {
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+        flex: 0.3;
+        margin: 5px 0px 0px 150px;
+      }
+      &:hover {
+        background-color: var(--container-color-dark);
+        color: var(--white);
+      }
+    }
+  }
+}
+
+//services
+.service-subtitle {
+  padding: 20px;
+  text-align: center;
+}
+.service-section .service-item {
+  // flex: 0 0 33.33%;
+  // max-width: 33.33%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .container {
+    width: 100%;
+  }
+}
+.service-section .service-item-inner {
+  box-shadow: 0px 4px 25px #efebf2;
+  margin: 5px;
+  padding: 50px 15px;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+  max-width: 30%;
+}
+.service-section .service-item-inner .fas::before {
+  font-family: "Font Awesome 5 Free";
+}
+.service-section .service-item-inner:hover {
+  background-color: var(--container-color-dark);
+  color: var(--white);
+}
+.service-section .service-item-inner .icon {
+  height: 60px;
+  width: 60px;
+  background-color: var(--container-color-dark);
+  margin: 0 auto 30px;
+  text-align: center;
+  font-size: 28px;
+  color: var(--white);
+  border-radius: 20px;
+  border-bottom-right-radius: 0;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+.service-section .service-item-inner:hover .icon {
+  background-color: var(--white);
+  color: var(--container-color-dark);
+  font-size: 24px;
+}
+.service-section .service-item-inner .icon i {
+  line-height: 60px;
+}
+.service-section .service-item-inner h3 {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size) !important;
+  font-size: 20px;
+  font-weight: 600;
+  //color: var(--black-900);
+  margin: 0 0 10px;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+.service-section .service-item-inner:hover h3 {
+  color: var(--white);
+}
+.service-section .service-item-inner p {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size) !important;
+  font-size: 16px;
+  //color: var(--black-400);
+  margin: 0;
+  line-height: 26px;
+  transition: all 0.3s ease;
+}
+.service-section .service-item-inner:hover p {
+  color: var(--black-100);
+}
+
+@media (max-width: 767px) {
+  .service-section .service-item {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .service-section .service-item-inner {
+    max-width: 100%;
+  }
+  .section {
+    &__height {
+      height: 100vh;
+    }
+  }
+}

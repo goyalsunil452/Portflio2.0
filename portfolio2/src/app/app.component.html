@@ -1,0 +1,242 @@
+<div class="main-page">
+
+    <!--=============== NAV ===============-->
+    <nav class="nav" id="nav" *ngIf="showProfile">
+        <div class="nav__menu container" id="nav-menu">
+            <div class="nav__shape"></div>
+    
+            <div class="nav__close" id="nav-close" (click)="openProfile()">
+                <i class='bx bx-x'></i>
+            </div>
+            
+            <div class="nav__data">
+                <div class="nav__mask">
+                    <!-- Change your profile picture -->
+                    <img src="assets/img/profile-pic1.png" alt="" class="nav__img">
+                </div>
+    
+                <span class="nav__greeting">Hi, I'm</span>
+                <h1 class="nav__name">Sunil <br> Goyal</h1>
+            </div>
+    
+            <ul class="nav__list" >
+                <li class="nav__item">
+                    <a href="#home" class="nav__link" (click)="openProfile()">
+                        <i class='bx bx-home' ></i> Home 
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#about" class="nav__link" (click)="openProfile()">
+                        <i class='bx bx-user'></i> About
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#skills" class="nav__link" (click)="openProfile()">
+                        <i class='bx bx-bookmark'></i> Skills
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#services" class="nav__link" (click)="openProfile()">
+                        <i class='bx bx-briefcase-alt-2'></i> Services
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link" (click)="openProfile()">
+                        <i class='bx bx-message-square-detail'></i> Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--=============== MAIN ===============-->
+    <main class="main" [ngClass]="{'show-menu':showProfile}" id="main">
+        <!--=============== HEADER ===============-->
+        <header [ngClass]="{'scroll-header':!scrollY}" class="header" id="header">
+            <nav class="header__nav container">
+                <div class="logo"><a href="index.html">WEB<span>Developer</span></a></div>
+                <!-- Toggle button -->
+                <div class="header__toggle" id="header-toggle" (click)="openProfile()">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+
+        <!-- When inserting your content into sections, remove the section__height class -->
+        <!--=============== HOME ===============-->
+        <section class="section section__height container home" id="home">
+            <div class="container">
+                <div class="row ">
+                    <div class="home-text">
+                        <!-- <h1>Sunil Goyal</h1> -->
+                        <span>Professional Web Developer</span>
+                        <p>I am an electrical engineer who passionate and aspire to web development and 3-D graphics design.</p>
+                        <p>I am talented , flexible and hardworking with broad skills. I am adept at handling multiple task on daily basis completely. Key streanth are working well under pressure, building strong relationships with people in order to deliver best result.</p>
+                        <!-- <a href="#" class="btn btn-1">purchase now</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--=============== ABOUT ===============-->
+        <section class="section section__height container about" id="about">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="about-content">
+                        <div class="section-title">
+                            <h3 class="main-title">Education</h3>
+                            <!-- <h5 class="sub-title project">Education</h5> -->
+                            <ul class="line">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="about-row">
+                            <div class="about-container">
+                                <div class="about-container-inner">
+                                    <h3>Motilal Nehru National Institute of Technology, Allahabad </h3>
+                                    <p>B.Tech (In Electrical Engineering)</p> 
+                                    <p>CGPA : 7.75 | 2021  </p> 
+                                </div>
+                            </div>
+                            <div class="about-container">
+                                <div class="about-container-inner">
+                                    <h3>Apna Vidhyalaya Sr. Sec. School, Jodhpur </h3>
+                                    <p>Class 12th </p>
+                                    <p>Percentage : 80.80 | 2015</p>
+                                </div>
+                            </div>
+                            <div class="about-container">
+                                <div class="about-container-inner">
+                                    <h3>Shri Sumer Sr. Sec. School, Jodhpur </h3>
+                                    <p>Class 10th </p>
+                                    <p>Percentage : 66.67 | 2013</p>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--=============== SKILLS ===============-->
+        <section class="section section__height container" id="skills">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="main-title">Skills</h3>
+                    <!-- <h5 class="sub-title project">Skills</h5> -->
+                </div>
+                <div>          
+                    <div class="skills-container">
+                        <div class="skills-row">
+                            <div class="skills" *ngFor="let skill of skills">
+                                <h3>{{skill}}</h3> 
+                                <!-- <span class="skills__percentage">80%</span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--=============== Services ===============-->
+        <section class="section section__height container service-section" id="services">
+            <div class="container">
+                <div class="row">
+                  <div class="section-title text-align">
+                      <!-- <h5 class="sub-title">services</h5> -->
+                  </div>
+                  <div class="section-title">
+                    <h3 class="main-title">Services I Provide</h3>
+                  </div>
+                </div>
+                <div class="row">
+                     <!--===== Service Item Start =====-->
+                    <div class="service-item">
+                        <div class="service-item-inner">
+                            <div class="icon">
+                                <!-- <i class="fas fa-mobile-alt"></i> -->
+                                <i class='bx bx-mobile-alt'></i>
+                            </div>
+                            <h3>Responsive design</h3>
+                            <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsam aliquam 
+                               
+                                ratione, possimus et! Doloremque!</p> -->
+                        </div>
+                        <div class="service-item-inner">
+                            <div class="icon">
+                                <i class='bx bx-laptop'></i>
+                            </div>
+                            <h3>web design</h3>
+                            <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsam aliquam 
+                               
+                                ratione, possimus et! Doloremque!</p> -->
+                        </div>
+                    </div>
+                    <!--===== Service Item End =====-->
+                    <!--===== Service Item Start =====-->
+                  <!--===== Service Item End =====-->
+                  <!--===== Service Item Start =====-->
+                   <!-- <div class="service-item">
+                      <div class="service-item-inner">
+                          <div class="icon">
+                              <i class="fas fa-palette"></i>
+                          </div>
+                          <h3>Graphic design</h3>
+                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsam aliquam 
+                              
+                              ratione, possimus et! Doloremque!</p>
+                      </div>
+                  </div> -->
+                  <!--===== Service Item End =====-->
+                  <!--===== Service Item Start =====-->
+                   <!-- <div class="service-item">
+                      <div class="service-item-inner">
+                          <div class="icon">
+                              <i class="fas fa-code"></i>
+                          </div>
+                          <h3>Clean Code</h3>
+                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsam aliquam 
+                             
+                              ratione, possimus et! Doloremque!</p>
+                      </div>
+                  </div> -->
+                  <!--===== Service Item End =====-->
+                  <!--===== Service Item Start =====-->
+                   <!-- <div class="service-item">
+                      <div class="service-item-inner">
+                          <div class="icon">
+                              <i class="fas fa-search"></i>
+                          </div>
+                          <h3>seo marketing</h3>
+                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsam aliquam 
+                             
+                              ratione, possimus et! Doloremque!</p>
+                      </div>
+                  </div> -->
+                  <!--===== Service Item End =====-->
+                  <!--===== Service Item Start =====-->
+                   <!-- <div class="service-item">
+                      <div class="service-item-inner">
+                          <div class="icon">
+                              <i class="fas fa-bullhorn"></i>
+                          </div>
+                          <h3>great support</h3>
+                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsam aliquam 
+                          
+                              ratione, possimus et! Doloremque!</p>
+                      </div>
+                  </div> -->
+                  <!--===== Service Item End =====-->
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!--=============== CONTACT ===============-->
+        <section class="section section__height container" id="contact">
+           <app-contact></app-contact>
+        </section>
+    </main>
+</div>
